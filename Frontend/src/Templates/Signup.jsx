@@ -19,7 +19,7 @@ const Signup = ()=>{
           });
           alert(req.data.message);
           if (req.data.signupStatus ) {
-            navigate("/");
+            navigate("/main");
           }
         } catch (e ) {
           alert("Signup Unsuccessful");

@@ -17,6 +17,7 @@ const Login=()=>{
     });
     var isLoginSuccessful = req.data.isLoggedIn;
     if (isLoginSuccessful) {
+        console.log("done")
       alert(req.data.message);
       navigate("/main");
     } else {
