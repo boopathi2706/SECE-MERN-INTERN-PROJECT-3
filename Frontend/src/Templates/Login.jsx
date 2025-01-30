@@ -12,7 +12,7 @@ const Login=()=>{
   const handleLogin = async (event) => {
     event.preventDefault();
     try{
-    var req = await axios.post("http://localhost:3001/login", {
+    var req = await axios.post("https://sece-mern-intern-project-3.onrender.com/login", {
       username,
       password,
     });

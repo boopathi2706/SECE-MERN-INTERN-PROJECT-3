@@ -16,7 +16,7 @@ const Donate = () => {
   const handleSubmit=async (event) => {
       event.preventDefault();
       try {
-        const req = await axios.post("http://localhost:3001/donate", {
+        const req = await axios.post("https://sece-mern-intern-project-3.onrender.com/donate", {
           name: name,
           reason:reason,
           account_no: account_no,
