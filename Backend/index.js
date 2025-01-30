@@ -111,6 +111,34 @@ app.post("/login", async (req, res) => {
     res.status(400).json({ message: "Login Failed",isLoggedIn:false });
   }
 });
+
+app.post('/donate',async(req,res)=>{
+     
+    const {name, reason,account_no,amount,image,discription} = req.body;
+
+  try {
+
+    const newUser = new User({
+        name,
+        reason,
+        account_no,
+        amount,
+        image,
+        discription
+    });
+
+    await newUser.save();
+    res.status(200).json({ message: "Upload Successfully", DonateStatus: true });
+
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: "Upload Faild", DonateStatus: false });
+  }
+
+
+})
+
+
 app.get("/json", verifyToken, (req, res) => {
   res.json({ message: "Middleware Check Passed", user: req.user.username });
 });

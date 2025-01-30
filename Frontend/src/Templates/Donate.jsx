@@ -1,8 +1,36 @@
 import React, { useEffect } from "react";
 import "./css/Donate.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Donate = () => {
+  const navigate=useNavigate();
+  var [name,setname]=useState("");
+  var [reason,setReason]=useState("");
+  var [account_no,setAccount_no]=useState("");
+  var [amount,setAmount]=useState("");
+  var [image,setImage]=useState("");
+  var [discription,setDiscription]=useState("");
+  const handleSubmit=async (event) => {
+      event.preventDefault();
+      try {
+        const req = await axios.post("https://sece-mern-intern-project-3.onrender.com/donate", {
+          name: name,
+          reason:reason,
+          account_no: account_no,
+          amount:amount,
+          image:image,
+          discription:discription,
+        });
+        alert(req.data.message);
+        if (req.data.signupStatus ) {
+          navigate("/");
+        }
+      } catch (e ) {
+        alert("Donate upload Unsuccessful");
+      }
+    };
   useEffect(() => {
     const openPopup = document.getElementById("openPopup");
     const closePopup = document.getElementById("closePopup");
@@ -108,46 +136,46 @@ const Donate = () => {
           <label htmlFor="name" className="add_donation_labels">
             Name
           </label>
-          <input type="text" className="add_donation_input" required />
+          <input type="text" className="add_donation_input" onChange={(e)=>{setname(e.target.value)}} required />
         </div>
 
         <div className="add_donation_input">
           <label htmlFor="donate" className="add_donation_labels">
             Reason for Donation
           </label>
-          <input type="text" className="add_donation_input" required />
+          <input type="text" className="add_donation_input" onChange={(e)=>{setReason(e.target.value)}} required />
         </div>
 
         <div className="add_donation_input">
           <label htmlFor="account_number" className="add_donation_labels">
             Bank Account No
           </label>
-          <input type="number" className="add_donation_input" required />
+          <input type="number" className="add_donation_input" onChange={(e)=>{setAccount_no(e.target.value)}} required />
         </div>
 
         <div className="add_donation_input">
           <label htmlFor="amount" className="add_donation_labels">
             Amount
           </label>
-          <input type="number" className="add_donation_input" required />
+          <input type="number" className="add_donation_input" onChange={(e)=>{setAmount(e.target.value)}} required />
         </div>
 
         <div className="add_donation_input">
           <label htmlFor="images" className="add_donation_labels">
             Upload Proofs
           </label>
-          <input type="file" className="add_donation_input" required />
+          <input type="file" className="add_donation_input"  accept="image/*"  onChange={(e)=>{setImage(e.target.files[0])}} required />
         </div>
 
         <div className="add_donation_input">
           <label htmlFor="description" className="add_donation_labels">
             Description
           </label>
-          <textarea className="add_donation_textarea"></textarea>
+          <textarea className="add_donation_textarea" onChange={(e)=>{setDiscription(e.target.value)}}></textarea>
         </div>
 
         <div className="add_donation_buttons">
-          <button className="apply">Apply</button>
+          <button className="apply" type="submit" onSubmit={handleSubmit}>Apply</button>
           <button className="cancel" id="closePopup">
             Cancel
           </button>
