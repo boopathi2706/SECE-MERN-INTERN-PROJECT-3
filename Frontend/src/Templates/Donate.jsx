@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-"..css/Donate.css";
+import "./css/Donate.css";
 import { Link } from "react-router-dom";
 
 const Donate = () => {
