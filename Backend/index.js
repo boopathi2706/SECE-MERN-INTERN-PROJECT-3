@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
+const User=require("./models/signupSchema")
 const jwt = require("jsonwebtoken");
 
 
@@ -27,7 +28,6 @@ const userSchema = new mongoose.Schema({
 });
 
 
-const User = mongoose.model("User", userSchema);
 
 
 const verifyToken = (req, res, next) => {
@@ -65,11 +65,6 @@ app.post("/signup", async (req, res) => {
 
   try {
 
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "User already exists. Please log in." });
-    }
-
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -81,15 +76,7 @@ app.post("/signup", async (req, res) => {
     });
 
     await newUser.save();
-
-
-    const token = jwt.sign({ email, username }, process.env.SECRET_KEY, { expiresIn: "24h" });
-    res.status(201).json({
-      message: "Signup Successful",
-      signupStatus: true,
-      token: token,
-      isLoggedIn: true,
-    });
+    res.status(200).json({ message: "Signup successful", signupStatus: true });
 
   } catch (error) {
     console.log(error);
