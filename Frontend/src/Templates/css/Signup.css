@@ -27,7 +27,7 @@ body{
 .front_image{
     width: 90%;
     height: 90%;
-    background: url('/Frontend/src/image/Sponsor-pana.png');
+    background: url('../image/Sponsor-pana.png');
     background-position: cover;
     background-size: cover;
 }
