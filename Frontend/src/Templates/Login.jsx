@@ -1,5 +1,6 @@
 
 import '../css/Login.css'
+import { Link } from 'react-router-dom';
 
 const Login=()=>{
     return(
@@ -19,9 +20,9 @@ const Login=()=>{
                     <label htmlFor="password" className='login_label'>Password</label>
                     <input type="password" className="login_input" required />
                 </div>
-                <button className="login_btn">Login</button>
+                <button className="login_btn"><Link to={'/main'} className='link'>Login</Link></button>
                 <p className="login_forget">Forget the password</p>
-                <h4 className="login_nevigate_signup">Create an new Account <span>Sign up</span></h4>
+                <h4 className="login_nevigate_signup">Create an new Account <span><Link to={'/signup'} className='link2'>Sign up</Link></span></h4>
 
             </div>
           </div>

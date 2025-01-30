@@ -85,11 +85,12 @@ body{
     background-color:#00acb5b9;
 }
 
-.signup_nevigate_signup{
+.signup_nevigate_login{
     line-height: 5px;
     font-size: 1rem;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+
 }
 .signup_nevigate_login span{
     color: rgb(9, 94, 242);

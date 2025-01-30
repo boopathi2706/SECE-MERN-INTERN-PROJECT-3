@@ -1,4 +1,5 @@
 import '../css/signup.css';
+import { Link } from 'react-router-dom';
 
 const Signup = ()=>{
      return(
@@ -22,8 +23,8 @@ const Signup = ()=>{
                     <label htmlFor="password" className='signup_label'>Password</label>
                     <input type="password" className="signup_input" required />
                 </div>
-                <button className="signup_btn">SignUp</button>
-                <h4 className="signup_nevigate_login">Already have an Account <span>Login</span></h4>
+                <button className="signup_btn"><Link to={'/main'} className='link'>SignUp</Link></button>
+                <h4 className="signup_nevigate_login">Already have an Account <span><Link className='link2' to={'/'}>Login</Link></span></h4>
 
             </div>
           </div>
