@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './css/Signup.css';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 const Signup = ()=>{
+    const navigate=useNavigate();
     var [username,setUsername]=useState("");
     var [email,setEmail]=useState("");
     var [password,setPassword]=useState("");
@@ -16,7 +18,7 @@ const Signup = ()=>{
             password: password,
           });
           alert(req.data.message);
-          if (req.data.signupStatus) {
+          if (req.data.signupStatus ) {
             navigate("/");
           }
         } catch (e) {
