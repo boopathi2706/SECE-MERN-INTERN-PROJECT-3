@@ -21,7 +21,7 @@ const Signup = ()=>{
           if (req.data.signupStatus ) {
             navigate("/");
           }
-        } catch (e) {
+        } catch (e ) {
           alert("Signup Unsuccessful");
         }
       };
