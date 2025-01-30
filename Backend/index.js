@@ -83,7 +83,7 @@ app.post("/signup", async (req, res) => {
     await newUser.save();
 
 
-    const token = jwt.sign({ email, username }, process.env.SECRET_KEY, { expiresIn: "1h" });
+    const token = jwt.sign({ email, username }, process.env.SECRET_KEY, { expiresIn: "24h" });
     res.status(201).json({
       message: "Signup Successful",
       signupStatus: true,
@@ -118,7 +118,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign(
       { email: existingUser.email, username: existingUser.username },
       process.env.SECRET_KEY,
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
 
     res.status(200).json({
