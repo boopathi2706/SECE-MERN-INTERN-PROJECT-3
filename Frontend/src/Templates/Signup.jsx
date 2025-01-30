@@ -15,7 +15,7 @@ const Signup = ()=>{
             email: email,
             password: password,
           });
-          alert(req.data.response);
+          alert(req.data.message);
           if (req.data.signupStatus) {
             navigate("/");
           }
