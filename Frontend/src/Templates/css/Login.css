@@ -27,7 +27,7 @@ body{
 .login_f_image{
     width: 80%;
     height: 90%;
-    background: url("../image/Piggybankpana.png");
+    background: url("/Frontend/src/image/Piggybankpana.png");
     background-position: center;
     background-size: cover;
 }
