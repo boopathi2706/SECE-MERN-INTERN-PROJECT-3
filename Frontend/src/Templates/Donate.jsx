@@ -4,8 +4,217 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-
+import medical1 from './image/medical1.avif'
+import medical2 from './image/medical2.jpg'
+import medical3 from './image/medical3.avif'
+import poor1 from './image/poor1.jpg'
+import poor2 from './image/poor2.jpg'
+import poor3 from './image/poor3.jpg'
+import startup1 from './image/startup1.jpeg'
+import startup2 from './image/startup2.jpeg'
+import startup3 from './image/startup3.png'
 const Donate = () => {
+  var [image1Url,setImage1]=useState(medical1);
+  var [image2Url,setImage2]=useState(medical2);
+  var [image3Url,setImage3]=useState(medical3);
+  const Medical = [
+    {
+      topic: "eye operation",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "8,34,000",
+      endAmount: "10,00,000"
+    },
+    {
+      topic: "heart surgery",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "7,00,000",
+      endAmount: "20,00,000"
+    },
+    {
+      topic: "cancer",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "3,00,000",
+      endAmount: "12,00,000"
+    }
+  ];
+
+
+
+
+
+  const show_medical=()=>{
+    var topic=document.getElementById("donate_box_topic1");
+    var start=document.getElementById("donate_start_amount1");
+    var end=document.getElementById("donate_end_amount1");
+    var content=document.getElementById("donate_content1");
+
+    topic.textContent=Medical[0].topic;
+    setImage1(medical1);
+    start.textContent=Medical[0].startAmount;
+    end.textContent=Medical[0].endAmount;
+    content.textContent=Medical[0].content;
+
+
+    var topic1=document.getElementById("donate_box_topic2");
+    var start1=document.getElementById("donate_start_amount2");
+    var end1=document.getElementById("donate_end_amount2");
+    var content1=document.getElementById("donate_content2");
+
+    topic1.textContent=Medical[1].topic;
+    setImage2(medical2)
+    start1.textContent=Medical[1].startAmount;
+    end1.textContent=Medical[1].endAmount;
+    content1.textContent=Medical[1].content;
+
+
+
+
+    var topic2=document.getElementById("donate_box_topic3");
+    var start2=document.getElementById("donate_start_amount3");
+    var end2=document.getElementById("donate_end_amount3");
+    var content2=document.getElementById("donate_content3");
+
+    topic2.textContent=Medical[2].topic;
+    setImage3(medical3);
+    start2.textContent=Medical[2].startAmount;
+    end2.textContent=Medical[2].endAmount;
+    content2.textContent=Medical[2].content;
+
+  }
+
+
+const Food = [
+    {
+      topic: "Orphanage",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "50,000",
+      endAmount: "1,50,000"
+    },
+    {
+      topic: "oldage home (madurai)",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "70,000",
+      endAmount: "2,00,000"
+    },
+    {
+      topic: "oldage home (chennai)",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "30,000",
+      endAmount: "1,00,000"
+    }
+  ];
+  
+
+  const idea = [
+    {
+      topic: "axz startup",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "5,00,000",
+      endAmount: "1,00,50,000"
+    },
+    {
+      topic: "yevs startup",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "70,00,000",
+      endAmount: "2,00,00,000"
+    },
+    {
+      topic: "xyz startup",
+      content: "Lorem Ipsum is simply dummy text of the printing.",
+      startAmount: "3,00,000",
+      endAmount: "10,00,000"
+    }
+  ];
+
+
+
+  const show_food=()=>{
+    var topic=document.getElementById("donate_box_topic1");
+    var start=document.getElementById("donate_start_amount1");
+    var end=document.getElementById("donate_end_amount1");
+    var content=document.getElementById("donate_content1");
+
+    topic.textContent=Food[0].topic;
+    setImage1(poor1);
+    start.textContent=Food[0].startAmount;
+    end.textContent=Food[0].endAmount;
+    content.textContent=Food[0].content;
+
+
+    var topic1=document.getElementById("donate_box_topic2");
+    var start1=document.getElementById("donate_start_amount2");
+    var end1=document.getElementById("donate_end_amount2");
+    var content1=document.getElementById("donate_content2");
+
+    topic1.textContent=Food[1].topic;
+    setImage2(poor2)
+    start1.textContent=Food[1].startAmount;
+    end1.textContent=Food[1].endAmount;
+    content1.textContent=Food[1].content;
+
+
+
+
+    var topic2=document.getElementById("donate_box_topic3");
+    var start2=document.getElementById("donate_start_amount3");
+    var end2=document.getElementById("donate_end_amount3");
+    var content2=document.getElementById("donate_content3");
+
+    topic2.textContent=Food[2].topic;
+    setImage3(poor3);
+    start2.textContent=Food[2].startAmount;
+    end2.textContent=Food[2].endAmount;
+    content2.textContent=Food[2].content;
+
+  }
+
+  const show_idea=()=>{
+    var topic=document.getElementById("donate_box_topic1");
+    var start=document.getElementById("donate_start_amount1");
+    var end=document.getElementById("donate_end_amount1");
+    var content=document.getElementById("donate_content1");
+
+    topic.textContent=idea[0].topic;
+    setImage1(startup1);
+    start.textContent=idea[0].startAmount;
+    end.textContent=idea[0].endAmount;
+    content.textContent=idea[0].content;
+
+
+    var topic1=document.getElementById("donate_box_topic2");
+    var start1=document.getElementById("donate_start_amount2");
+    var end1=document.getElementById("donate_end_amount2");
+    var content1=document.getElementById("donate_content2");
+
+    topic1.textContent=idea[1].topic;
+    setImage2(startup2)
+    start1.textContent=idea[1].startAmount;
+    end1.textContent=idea[1].endAmount;
+    content1.textContent=idea[1].content;
+
+
+
+
+    var topic2=document.getElementById("donate_box_topic3");
+    var start2=document.getElementById("donate_start_amount3");
+    var end2=document.getElementById("donate_end_amount3");
+    var content2=document.getElementById("donate_content3");
+
+    topic2.textContent=idea[2].topic;
+    setImage3(startup3);
+    start2.textContent=idea[2].startAmount;
+    end2.textContent=idea[2].endAmount;
+    content2.textContent=idea[2].content;
+
+  }
+
+
+
+
+
+
+
+
   const navigate=useNavigate();
   var [name,setname]=useState("");
   var [reason,setReason]=useState("");
@@ -99,15 +308,15 @@ const Donate = () => {
       </div>
 
       <div className="Donate_fillters">
-        <div className="Donate_fillter">
+        <div className="Donate_fillter" onClick={show_medical}>
           <i className="fa-solid fa-hospital"></i>
           <h3>Hospital</h3>
         </div>
-        <div className="Donate_fillter">
+        <div className="Donate_fillter" onClick={show_food}>
           <i className="fa-solid fa-bowl-food"></i>
           <h3>Food Donate</h3>
         </div>
-        <div className="Donate_fillter">
+        <div className="Donate_fillter" onClick={show_idea}>
           <i className="fa-solid fa-lightbulb"></i>
           <h3>Donate for Ideas</h3>
         </div>
@@ -118,9 +327,43 @@ const Donate = () => {
       </div>
 
       <div className="Donate_box_container">
-        <div className="Donate_box Donate_box1" id="donatebox" ></div>
-        <div className="Donate_box Donate_box1"></div>
-        <div className="Donate_box Donate_box1"></div>
+        <div className="Donate_box Donate_box1">
+              <h3 className="donate_box_topic" id="donate_box_topic1">eye operation</h3>
+              <img className="donate_box_image" id="donate_box_image1" src={image1Url} />
+
+              {/* </div> */}
+              <div className="donate_box_amount">
+                <p className="donate_start_amount" id="donate_start_amount1">8,34,000</p>of
+                <p className="donate_end_amount" id="donate_end_amount1">10,00,000</p>            
+              </div>
+              <div className="donate_content" id="donate_content1">
+              Lorem Ipsum is simply dummy text of the printing
+
+              </div>
+        </div>
+
+        <div className="Donate_box Donate_box1">
+        <h3 className="donate_box_topic" id="donate_box_topic2">heart surgery</h3>
+              <img className="donate_box_image" id="donate_box_image2" src={image2Url}/>
+              <div className="donate_box_amount">
+                <p className="donate_start_amount" id="donate_start_amount2">7,00,000</p>of
+                <p className="donate_end_amount" id="donate_end_amount2">20,00,000</p>            
+              </div>
+              <div className="donate_content" id="donate_content2">
+              Lorem Ipsum is simply dummy text of the printing
+              </div>
+        </div>
+        <div className="Donate_box Donate_box1">
+        <h3 className="donate_box_topic" id="donate_box_topic3">cancer</h3>
+              <img className="donate_box_image" id="donate_box_image3" src={image3Url} />
+              <div className="donate_box_amount">
+                <p className="donate_start_amount" id="donate_start_amount3">3,00,000</p>of
+                <p className="donate_end_amount" id="donate_end_amount3">20,00,000</p>            
+              </div>
+              <div className="donate_content" id="donate_content3">
+              Lorem Ipsum is simply dummy text of the printing
+              </div>
+        </div>
         <div className="Donate_box">
           <h3 className="seemore">See More</h3>
           <div className="add_donate">
