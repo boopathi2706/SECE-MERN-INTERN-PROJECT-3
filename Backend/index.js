@@ -85,11 +85,11 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ username });
 
     if (!existingUser) {
       return res.status(404).json({ message: "User not found. Please sign up first." });
@@ -101,22 +101,14 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid Credentials", isLoggedIn: false });
     }
 
-
-    const token = jwt.sign(
-      { email: existingUser.email, username: existingUser.username },
-      process.env.SECRET_KEY,
-      { expiresIn: "24h" }
-    );
-
     res.status(200).json({
       message: "Login Successful",
       isLoggedIn: true,
-      token: token,
     });
 
   } catch (error) {
     console.log(error);
-    res.status(400).json({ message: "Login Failed" });
+    res.status(400).json({ message: "Login Failed",isLoggedIn:false });
   }
 });
 app.get("/json", verifyToken, (req, res) => {
