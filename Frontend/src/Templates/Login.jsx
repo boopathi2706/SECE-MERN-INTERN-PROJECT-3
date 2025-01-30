@@ -11,6 +11,7 @@ const Login=()=>{
   const [password, setPassword] = useState("");
   const handleLogin = async (event) => {
     event.preventDefault();
+    try{
     var req = await axios.post("hhttps://sece-mern-intern-project-3.onrender.com/login", {
       username,
       password,
@@ -23,6 +24,9 @@ const Login=()=>{
     } else {
       alert(req.data.message);
     }
+  }catch(e){
+    alert("invalid email or password")
+  }
   };
 
     return(

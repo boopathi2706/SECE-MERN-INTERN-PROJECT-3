@@ -25,7 +25,7 @@ const Donate = () => {
         });
         alert(req.data.message);
         if (req.data.signupStatus ) {
-          navigate("/");
+          navigate("/main");
         }
       } catch (e ) {
         alert("Donate upload Unsuccessful");
