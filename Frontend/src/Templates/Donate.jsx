@@ -3,6 +3,7 @@ import "./css/Donate.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const Donate = () => {
   const navigate=useNavigate();
@@ -15,19 +16,20 @@ const Donate = () => {
   const handleSubmit=async (event) => {
       event.preventDefault();
       try {
-        const req = await axios.post("https://sece-mern-intern-project-3.onrender.com/donate", {
+        const req = await axios.post("http://localhost:3001/donate", {
           name: name,
           reason:reason,
           account_no: account_no,
           amount:amount,
-          image:image,
+          image:"hello",
           discription:discription,
         });
+        console.log(image);
         alert(req.data.message);
-        if (req.data.signupStatus ) {
+        if (req.data.DonateStatus ) {
           navigate("/main");
         }
-      } catch (e ) {
+      } catch (e) {
         alert("Donate upload Unsuccessful");
       }
     };
@@ -175,7 +177,7 @@ const Donate = () => {
         </div>
 
         <div className="add_donation_buttons">
-          <button className="apply" type="submit" onSubmit={handleSubmit}>Apply</button>
+          <button className="apply" type="submit" onClick={handleSubmit}>Apply</button>
           <button className="cancel" id="closePopup">
             Cancel
           </button>
@@ -204,7 +206,7 @@ const Donate = () => {
         </div>
         <div className="donation_pay_right_side">
           <div className="donate_icon_area">
-            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <i className="fa-solid fa-hand-holding-dollar"></i>
             <h3>Donate</h3>
           </div>
           <div className="donation_amount_raise">

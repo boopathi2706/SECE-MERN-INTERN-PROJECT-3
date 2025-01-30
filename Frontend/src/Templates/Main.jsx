@@ -17,7 +17,7 @@ const Main=()=>{
             </div>
            
             <div className="location">
-            <i class="fa-solid fa-location-dot"></i>
+            <i className="fa-solid fa-location-dot"></i>
             <h3>SECE Coimbatore - 641202</h3>
             </div>
             <div className="profile">
@@ -46,7 +46,7 @@ const Main=()=>{
           </div>
           {logout && (<div className="logout">
               <h3><Link to={'/'} className="link1">Logout</Link></h3>
-             <i class="fa-solid fa-right-from-bracket"></i>
+             <i className="fa-solid fa-right-from-bracket"></i>
             
           </div>)}
           

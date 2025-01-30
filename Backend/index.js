@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 const User=require("./models/signupSchema")
+const Donate=require("./models/DonateSchema")
 const jwt = require("jsonwebtoken");
 
 
@@ -90,9 +91,9 @@ app.post("/login", async (req, res) => {
   try {
 
     const existingUser = await User.findOne({ username });
-
+    console.log("hello")
     if (!existingUser) {
-      return res.status(404).json({ message: "User not found. Please sign up first." });
+      return res.status(404).json({ message: "User not found. Please sign up first.",isLoggedIn:false });
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
@@ -118,7 +119,7 @@ app.post('/donate',async(req,res)=>{
 
   try {
 
-    const newUser = new User({
+    const newUser = new Donate({
         name,
         reason,
         account_no,

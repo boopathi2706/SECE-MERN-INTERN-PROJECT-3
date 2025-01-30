@@ -4,9 +4,9 @@ const donateSchema = mdb.Schema({
   name:String,
   reason: String,
   account_no: String,
-  amount:string,
-  image:string,
-  discription:string
+  amount: String,
+  image: String,
+  discription: String
 });
 
 const Donate_schema = mdb.model("donateDetails", donateSchema);

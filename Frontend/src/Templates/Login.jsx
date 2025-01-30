@@ -12,7 +12,7 @@ const Login=()=>{
   const handleLogin = async (event) => {
     event.preventDefault();
     try{
-    var req = await axios.post("https://sece-mern-intern-project-3.onrender.com/login", {
+    var req = await axios.post("http://localhost:3001/login", {
       username,
       password,
     });
@@ -46,7 +46,7 @@ const Login=()=>{
                     <label htmlFor="password" className='login_label'>Password</label>
                     <input type="password" className="login_input" onChange={(e)=>{setPassword(e.target.value)}} required />
                 </div>
-                <button className="login_btn" type='submit' onSubmit={handleLogin}>Login</button>
+                <button className="login_btn" type='submit' onClick={handleLogin}>Login</button>
                 <p className="login_forget">Forget the password</p>
                 <h4 className="login_nevigate_signup">Create an new Account <span><Link to={'/signup'} className='link2'>Sign up</Link></span></h4>
 
