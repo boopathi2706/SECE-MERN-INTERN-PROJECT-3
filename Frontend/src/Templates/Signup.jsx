@@ -1,4 +1,4 @@
-import '../Templates/css/signup.css';
+import './css/Signup.css';
 import { Link } from 'react-router-dom';
 
 const Signup = ()=>{
