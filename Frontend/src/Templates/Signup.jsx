@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './css/Signup.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
 const Signup = ()=>{
     var [username,setUsername]=useState("");
